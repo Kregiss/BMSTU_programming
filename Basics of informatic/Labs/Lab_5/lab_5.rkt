@@ -50,7 +50,7 @@
             ((equal? word 'define) (main_proc (+ 1 (search-ind program 'end ind_word))
                                               stack-in
                                               stack-out
-                                              (cons (list (vector-ref program (+ 1 ind_word)) (+ 2 ind_word)) dict))) ; запись названия и того, что делает новая процедура
+                                              (cons (list (vector-ref program (+ 1 ind_word)) (+ 2 ind_word)) dict))) ; запись названия и того, что делает новая процедура в словарь
             ((equal? word 'end)    (main_proc (car stack-out) stack-in (cdr stack-out) dict))
             ((equal? word 'exit)   (main_proc (car stack-out) stack-in (cdr stack-out) dict))
             ((equal? word 'if)     (main_proc (if (= 0 (car stack-in))
