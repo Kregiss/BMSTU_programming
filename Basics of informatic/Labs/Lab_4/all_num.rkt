@@ -67,8 +67,8 @@
         ((= n 2) 1)
         (else (if (= 0 (vector-ref memo-ls n))
                   (vector-set! memo-ls n (+ (loop (- n 3))
-                                         (loop (- n 2))
-                                         (loop (- n 1)))))
+                                            (loop (- n 2))
+                                            (loop (- n 1)))))
                   (vector-ref memo-ls n))))))
 
 ;; num.4
