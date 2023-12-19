@@ -3,7 +3,6 @@
 
 (define feature-if-else #t)
 (define feature-while-loop #t)
-(define feature-repeat-loop #t)
 (define feature-break-continue #t)
 
 (define (vec-len xs)
