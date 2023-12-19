@@ -25,7 +25,7 @@
             ((equal? word '+)   (main_proc (+ 1 ind_word) (cons (+ (car stack-in) (cadr stack-in)) (cddr stack-in)) stack-out dict))
             ((equal? word '-)   (main_proc (+ 1 ind_word) (cons (- (cadr stack-in) (car stack-in)) (cddr stack-in)) stack-out dict))
             ((equal? word '*)   (main_proc (+ 1 ind_word) (cons (* (car stack-in) (cadr stack-in)) (cddr stack-in)) stack-out dict))
-            ((equal? word '/)   (main_proc (+ 1 ind_word) (cons (modulo (cadr stack-in) (car stack-in)) (cddr stack-in)) stack-out dict))
+            ((equal? word '/)   (main_proc (+ 1 ind_word) (cons (quotient (cadr stack-in) (car stack-in)) (cddr stack-in)) stack-out dict))
             ((equal? word 'mod) (main_proc (+ 1 ind_word) (cons (remainder (cadr stack-in) (car stack-in)) (cddr stack-in)) stack-out dict))
             ((equal? word 'neg) (main_proc (+ 1 ind_word) (cons (* -1 (car stack-in)) (cdr stack-in)) stack-out dict))
             ; Операции сравнения
@@ -33,9 +33,9 @@
             ((equal? word '>) (main_proc (+ 1 ind_word) (cons (flag > (cadr stack-in) (car stack-in)) (cddr stack-in)) stack-out dict))
             ((equal? word '<) (main_proc (+ 1 ind_word) (cons (flag < (cadr stack-in) (car stack-in)) (cddr stack-in)) stack-out dict))
             ; Логические операции
-            ((equal? word 'not) (main_proc (+ 1 ind_word) (cons (not (car stack-in)) (cdr stack-in)) stack-out dict))
-            ((equal? word 'and) (main_proc (+ 1 ind_word) (cons (and (car stack-in) (cadr stack-in)) (cddr stack-in)) stack-out dict))
-            ((equal? word 'or)  (main_proc (+ 1 ind_word) (cons (or (car stack-in) (cadr stack-in)) (cddr stack-in)) stack-out dict))
+            ((equal? word 'not) (main_proc (+ 1 ind_word) (cons (if (= 0 (car stack-in)) -1 0) (cdr stack-in)) stack-out dict))
+            ((equal? word 'and) (main_proc (+ 1 ind_word) (cons (if (or (= 0 (car stack-in)) (= 0 (cadr stack-in))) 0 -1) (cddr stack-in)) stack-out dict))
+            ((equal? word 'or)  (main_proc (+ 1 ind_word) (cons (if (and (= 0 (car stack-in)) (= 0 (cadr stack-in))) 0 -1) (cddr stack-in)) stack-out dict))
             ; Операции со стеком
             ((equal? word 'drop)  (main_proc (+ 1 ind_word) (cdr stack-in) stack-out dict))
             ((equal? word 'swap)  (main_proc (+ 1 ind_word) (cons (cadr stack-in) (cons (car stack-in) (cddr stack-in))) stack-out dict))
