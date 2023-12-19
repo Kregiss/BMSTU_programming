@@ -225,17 +225,6 @@
                                               stack-in
                                               (cdr stack-out)
                                               dict))
-            ;(define feature-repeat-loop #t)
-            ((equal? word 'repeat) (main_proc (+ 1 ind_word)
-                                              stack-in
-                                              (cons ind_word stack-out)
-                                              dict))
-            ((equal? word 'until)  (main_proc (if (= 0 (car stack-in))
-                                                  (+ 1 ind_word)
-                                                  (car stack-out))
-                                              (cdr stack-in)
-                                              (cdr stack-out)
-                                              dict))
             ;(define feature-break-continue #t)
             ((equal? word 'break)    (main_proc (+ 1 (first-end_break program ind_word))
                                                 stack-in
