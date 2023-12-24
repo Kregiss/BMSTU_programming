@@ -7,6 +7,7 @@
 
 
 Примеры
+
 ![image](https://github.com/Kregiss/BMSTU_programming/assets/145288385/f01ba45d-3536-4c87-9441-991e302727d5)
 
 Примеры вызова процедуры:
