@@ -13,14 +13,12 @@ int main()
         scanf("%ld", &ai);
         if (i == 0){
             sm1 += ai;
-        }
-        else{
+        } else {
             sm1 = (sm1 + ai) * x0;
 
             if (i == 1){
                 sm2 += ai * i;
-            }
-            else{
+            } else {
                 sm2 = (sm2 + ai * i) * x0;
             }
         }
