@@ -24,14 +24,14 @@
           (cons (car xs) (my-filter pred? (cdr xs)))
           (my-filter pred? (cdr xs)))))
 
-;O(len(xs))
+;O(len(xs)^2)
 (define (my-fold-left op xs)
   (if (= 1 (length xs))
       (car xs)
       (my-fold-left op (cons (op (car xs) (cadr xs)) (cddr xs)))))
 
 
-;O(len(xs))
+;O(len(xs)^2)
 (define (my-fold-right op xs)
   (cond
     ((= 1 (length xs)) (car xs))
