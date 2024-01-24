@@ -30,15 +30,7 @@ int main()
         }
     }
 
-    //for (int k = 0; k <= k_str; k++){
-    //    for (int r = 0; r <= k_kol; r++){
-    //        printf("%ld\t", ls[k][r]);
-    //    }
-    //    printf("\n");
-    //}
-
-    // проходимся по крайним строке и столбцу и ищем одинаковые числа
-    int fl = 0;
+    int is_seddle_point = 0;
     for (int q = 0; q < k_str; q++) // по строкам (максимумы)
     {
         long int a = ls[q][k_kol];
@@ -49,15 +41,15 @@ int main()
 
             if (a == b){
                 printf("%d %d", q, w);
-                fl = 1;
+                is_seddle_point = 1;
                 break;
             }
         }
 
-        if (fl == 1){ break; }
+        if (is_seddle_point == 1){ break; }
     }
 
-    if (fl == 0){ printf("none"); }
+    if (is_seddle_point == 0){ printf("none"); }
 
     return 0;
 }
