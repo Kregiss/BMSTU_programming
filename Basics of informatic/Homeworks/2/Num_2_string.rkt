@@ -1,4 +1,4 @@
-; O(len(xs))
+; O(len(str)^2)
 (define (string-trim-left str)
   (if (or (equal? (car (string->list str)) #\space)
           (equal? (car (string->list str)) #\tab)
@@ -7,7 +7,7 @@
       str))
 ;(string-trim-left  "\t\tabc def")   ;=> "abc def"
 
-; O(len(xs))
+; O(len(str)^2)
 (define (string-trim-right str)
   (if (or (equal? (car (reverse (string->list str))) #\space)
           (equal? (car (reverse (string->list str))) #\tab)
@@ -16,12 +16,12 @@
       str))
 ;(string-trim-right "abc def\t")     ;=> "abc def"
 
-;O(len(xs))
+;O(len(str)^2)
 (define (string-trim str)
   (string-trim-left (string-trim-right str)))
 ;(string-trim       "\t abc def \n") ;=> "abc def"
 
-;O(len(xs)^3)
+;O(len(a) ^ 2)
 (define (string-prefix? a b)
   (if (not (null? (string->list a)))
       (and (<= (length (string->list a)) (length (string->list b)))
@@ -33,7 +33,7 @@
 ;(string-prefix? "bcd" "abcdef")  ;=> #f
 ;(string-prefix? "abcdef" "abc")  ;=> #f
 
-;O(len(xs)^3)
+;O(len(a) ^ 2)
 (define (string-suffix? a b)
   (if (not (null? (string->list a)))
       (and (<= (length (string->list a)) (length (string->list b)))
@@ -44,7 +44,7 @@
 ;(string-suffix? "def" "abcdef")  ;=> #t
 ;(string-suffix? "bcd" "abcdef")  ;=> #f
 
-;O(len(xs)^3)
+;O(len(a) * len(a) * len(b))
 (define (string-infix? a b)
   (or (equal? a b)
       (and (not (null? (string->list b)))
@@ -58,7 +58,6 @@
 ;(string-infix? "bcd" "abc")      ;=> #f
 ;(string-infix? "" "")            ;=> #t
 
-;O(len(xs)^2)
 (define (delete-str str sep)
   (if (= 0 (length str))
       str
@@ -69,6 +68,7 @@
                     (delete-str (cdr str) sep)))
           (list str))))
 
+;O(len(sep) * len(sep) * len(str))
 (define (string-split str sep)
   (if (string-infix? sep str)
       (map list->string (delete-str (string->list str) (string->list sep)))
