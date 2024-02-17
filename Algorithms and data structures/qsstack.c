@@ -1,3 +1,5 @@
+// https://www.programiz.com/dsa/quick-sort
+
 #include <stdio.h>
 
 struct Task {
