@@ -1,7 +1,3 @@
-package main
-/*  
-правильное решение на C++
-
 #include <limits>
 #include <iostream>
 #include <vector>
@@ -146,7 +142,7 @@ int main() {
     return 0;
 }
 
-*/
+
 
 /*
 5
