@@ -1,14 +1,9 @@
-package main
-
 /*
-решение на java
-
 совет: 
 дважды прогнать алгоритм - если оценки максимальных путей 
 увеличились, значит бесконечен
 */
 
-/*
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -141,7 +136,7 @@ public class LongWord {
         System.out.println(res);
     }
 }
-*/
+
 
 /*
 3 8 5
