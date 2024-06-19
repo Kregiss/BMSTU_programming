@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"bufio"
 	"fmt"
@@ -70,7 +70,7 @@ func main() {
 	machine := NewMealyMachine(n, m, q0, delta, phi)
 	fmt.Println(machine.GenerateDOT())
 }
-*/
+
 /*
 4
 3
