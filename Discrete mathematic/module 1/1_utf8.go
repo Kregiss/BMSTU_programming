@@ -47,7 +47,7 @@ func decode(utf8 []byte) []rune {
 	return utf32Runes
 }
 
-func main1() {
+func main() {
 	//utf32Text := []rune{'A', 'é', '€'} // "A", "é", "€"
 	/*
 	fmt.Println("UTF-32:", utf32Text)
