@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"fmt"
 )
@@ -74,7 +74,7 @@ func main10() {
 	fmt.Println(bridges)
 }
 
-
+/*
 7
 7
 0 1
