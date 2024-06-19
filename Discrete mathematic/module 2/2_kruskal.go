@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"fmt"
 	"math"
@@ -96,7 +96,7 @@ func main() {
 	}
 	fmt.Printf("%.2f", totalDistance)
 }
-*/
+
 /*
 12
 2 4
