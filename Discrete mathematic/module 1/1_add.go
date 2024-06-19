@@ -50,7 +50,7 @@ func add(a, b []int32, p int) []int32 {
 	}
 }
 
-func main2() {
+func main() {
 	var inputA, inputB string
 	var p int
 
