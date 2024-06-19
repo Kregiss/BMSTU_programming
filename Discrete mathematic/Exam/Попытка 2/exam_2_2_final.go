@@ -1,8 +1,3 @@
-package main
-
-/*
-решение на java
-
 import java.util.*;
 
 class File {
@@ -25,7 +20,6 @@ public class PascalCompiler {
         int n = scanner.nextInt();
         Map<String, File> files = new HashMap<>();
 
-        // Reading files and dependencies
         for (int i = 0; i < n; i++) {
             String name = scanner.next();
             int k = scanner.nextInt();
@@ -37,7 +31,6 @@ public class PascalCompiler {
         }
 
         int m = scanner.nextInt();
-        // Reading timestamps
         for (int i = 0; i < m; i++) {
             String filename = scanner.next();
             int timestamp = scanner.nextInt();
@@ -125,7 +118,7 @@ public class PascalCompiler {
         return false;
     }
 }
-*/
+
 
 /*
 6
