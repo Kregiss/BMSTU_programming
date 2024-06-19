@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"fmt"
 )
@@ -115,7 +115,7 @@ func main9() {
 	}
 	fmt.Println("}")
 }
-*/
+
 /*
 7
 8
