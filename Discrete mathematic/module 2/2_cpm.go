@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"bufio"
 	"fmt"
@@ -405,7 +405,7 @@ func main() {
 	dot := generateDot(graph, cycles, criticalEdges, criticalVertices)
 	fmt.Print(dot)
 }
-*/
+
 
 /*
 A(5) < B(5) < C(10);
