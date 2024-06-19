@@ -55,7 +55,7 @@ func addSpacesBetweenRunes2(input string) string {
 	return output
 }
 
-func main5() {
+func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	input, _ := reader.ReadString('\n')
