@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"fmt"
 	"sort"
@@ -99,7 +99,7 @@ func main() {
 	}
 }
 
-*/
+
 
 /*
 10
