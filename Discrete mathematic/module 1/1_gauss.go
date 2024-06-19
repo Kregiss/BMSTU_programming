@@ -207,7 +207,7 @@ func methodGaussa(array [][]int) [][]Rational {
 
 }
 
-func main3() {
+func main() {
 	var n int
 	fmt.Scan(&n)
 
