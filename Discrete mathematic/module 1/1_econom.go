@@ -66,7 +66,7 @@ func main5() {
 
 	uniqueExpressions, _ := countUniqueExpressions(inputWithSpace)
 	/*
-	из-за тупого сервера Колывана пришлось добавить этот фрагмент
+	из-за сервера пришлось добавить этот фрагмент
 	if len(input) > 2 {
 		uniqueExpressions++
 	}
