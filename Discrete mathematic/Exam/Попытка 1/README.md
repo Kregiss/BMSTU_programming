@@ -37,7 +37,6 @@ func MergeSort(items int, compare func(i, j int) int, indices chan int)
 ```
 соответствуют такому графу зависимостей курсов
 ![image](https://github.com/Kregiss/BMSTU_programming/assets/145288385/531f27b4-6302-45c3-be51-a27772605ed0)
-Очевидно, что потребуется 7 семестров.
 
 Подсказка: можно, например, воспользоваться алгоритмом Беллмана-Форда.
 
