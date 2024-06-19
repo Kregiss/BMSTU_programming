@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"container/heap"
 	"fmt"
@@ -110,7 +110,7 @@ func main() {
 	minTotalLength := MSTPrim(N, edges)
 	fmt.Println(minTotalLength)
 }
-*/
+
 
 /*
 7
