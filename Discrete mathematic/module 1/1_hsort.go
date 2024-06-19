@@ -39,7 +39,7 @@ func hsort(n int, less func(i, j int) bool, swap func(i, j int)) {
     }
 }
 
-func main0() {
+func main() {
     reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 	input = strings.TrimSpace(input)
