@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"bufio"
 	"container/heap"
@@ -139,7 +139,7 @@ func main() {
 	fmt.Println(shortestCost)
 	fmt.Println(strings.Trim(strings.Join(strings.Fields(fmt.Sprint(shortestPath)), " "), "[]"))
 }
-*/
+
 
 /*
 4 6
