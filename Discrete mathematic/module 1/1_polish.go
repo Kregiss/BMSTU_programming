@@ -146,7 +146,7 @@ func addSpacesBetweenRunes(input string) string {
 	return output
 }
 
-func main4() {
+func main() {
 	reader := bufio.NewReader(os.Stdin)
     
     input, _ := reader.ReadString('\n')
