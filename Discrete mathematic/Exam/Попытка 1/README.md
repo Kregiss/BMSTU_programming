@@ -1,6 +1,7 @@
 Попытка №1
 
-Задача №1.
+##Задача №1.
+
 Реализуйте алгоритм сортировки слиянием произвольных данных в функции
 ```go
 func MergeSort(items int, compare func(i, j int) int, indices chan int)
