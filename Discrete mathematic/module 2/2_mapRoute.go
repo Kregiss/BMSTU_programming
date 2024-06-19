@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"container/heap"
 	"fmt"
@@ -82,7 +82,7 @@ func main() {
 
 	fmt.Println(minPathLength(N, grid))
 }
-*/
+
 /*
 5
 1 7 7 9 1
