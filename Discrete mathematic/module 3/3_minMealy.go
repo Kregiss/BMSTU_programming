@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"bufio"
 	"fmt"
@@ -233,7 +233,7 @@ func main() {
 
 	GenerateDOT(minimizedStates, initialState, m, alphabet)
 }
-*/
+
 /*
 5
 3
