@@ -1,3 +1,8 @@
+/*
+Прямоугольник со сторонами a и b, изображённый таким образом, 
+что его длинная сторона составляет угол альфа с осью OX.
+*/
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
