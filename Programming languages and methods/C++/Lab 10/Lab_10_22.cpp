@@ -117,7 +117,7 @@ private:
 };
 
 int main() {
-    CircularBuffer<int> cb(5);
+    CircularBuffer<int> cb(6);
 
     cb.add(7);
     cb.add(8);
