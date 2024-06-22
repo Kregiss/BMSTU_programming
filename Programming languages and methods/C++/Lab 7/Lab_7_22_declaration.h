@@ -6,9 +6,6 @@
 4. проверка, является ли последовательность палиндромом. 
 */
 
-#ifndef CHARACTER_SEQUENCE_H
-#define CHARACTER_SEQUENCE_H
-
 class CharacterSequence {
 private:
     char* data;
@@ -25,5 +22,3 @@ public:
     void insert(int index, char ch);
     bool isPalindrome() const;
 };
-
-#endif // CHARACTER_SEQUENCE_H
