@@ -10,10 +10,6 @@
 Конструктор матрицы должен принимать в качестве параметра её порядок и формировать нулевую матрицу. 
 */
 
-
-
-#ifndef RATIONAL_MATRIX_H
-#define RATIONAL_MATRIX_H
 #include <iostream>
 
 class Rational {
@@ -51,5 +47,3 @@ public:
     RationalMatrix getSubmatrix(int row, int col) const;
     Rational determinant() const;
 };
-
-#endif // RATIONAL_MATRIX_H
