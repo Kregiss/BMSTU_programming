@@ -1,3 +1,5 @@
+// не моё
+
 package main
 
 import (
