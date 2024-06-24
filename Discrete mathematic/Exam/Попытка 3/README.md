@@ -110,7 +110,7 @@ Y->c
 ### Дополнительная литература:
   1. Harikrishna N., Shalini K. Regular approximation of CFGs, 2010
 ### Java
-ри решении задачи на Java главный класс должен называться StronglyRegular.
+При решении задачи на Java главный класс должен называться StronglyRegular.
 
 ## Задача №3.
 
