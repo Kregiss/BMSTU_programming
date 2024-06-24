@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
   "fmt"
 )
@@ -108,7 +108,7 @@ func main() {
 	}
 	fmt.Println()
 }
-*/
+
 /*
 fox the dog over lazy quick brown jumps
 */
