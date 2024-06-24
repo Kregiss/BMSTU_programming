@@ -1,3 +1,5 @@
+// не моё
+
 package main
 
 func MergeSort(items int, compare func(i, j int) int, indices chan int) {
