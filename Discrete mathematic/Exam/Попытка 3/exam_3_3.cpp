@@ -1,3 +1,5 @@
+// не моё
+
 #include <iostream>
 #include <vector>
 
