@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .peer {
+            margin: 10px 0;
+        }
+        .connected {
+            color: green;
+        }
+        .disconnected {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Peer Status Dashboard</h1>
+    <div id="peers">
+        <!-- Здесь будут отображаться состояния пиров -->
+    </div>
+    <h2>Messages</h2>
+    <div id="messages">
+        <!-- Здесь будут отображаться новые сообщения -->
+    </div>
+
+    <script>
+        const peersDiv = document.getElementById("peers");
+        const messagesDiv = document.getElementById("messages");
+
+        const ws = new WebSocket("ws://185.102.139.161:55430/ws");
+
+        ws.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+
+            if (data.event_type === "state_update") {
+                updatePeerStatus(data.peer_state);
+            } else if (data.event_type === "new_message") {
+                displayMessage(data.message);
+            }
+        };
+
+        function updatePeerStatus(peer) {
+            let peerDiv = document.getElementById(peer.ip + ":" + peer.port);
+
+            if (!peerDiv) {
+                peerDiv = document.createElement("div");
+                peerDiv.id = peer.ip + ":" + peer.port;
+                peerDiv.classList.add("peer");
+                peersDiv.appendChild(peerDiv);
+            }
+
+            peerDiv.textContent = `Peer ${peer.ip}:${peer.port} is ${peer.connected ? "connected" : "disconnected"}`;
+            peerDiv.className = `peer ${peer.connected ? "connected" : "disconnected"}`;
+        }
+
+        function displayMessage(message) {
+            const messageDiv = document.createElement("div");
+            messageDiv.textContent = `${message.timestamp} - ${message.sender} to ${message.receiver}: ${message.message}`;
+            messagesDiv.appendChild(messageDiv);
+        }
+    </script>
+</body>
+</html>

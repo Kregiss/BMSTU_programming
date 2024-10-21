@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sender</title>
+</head>
+<body>
+    <h1>Send Message to Peer</h1>
+    <form id="messageForm">
+        <label for="sender">Sender Peer (IP:Port):</label>
+        <input type="text" id="sender" name="sender" placeholder="185.102.139.161:55440" required><br>
+
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" placeholder="Enter your message" required><br>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div id="response"></div>
+
+    <script>
+        const form = document.getElementById("messageForm");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const sender = document.getElementById("sender").value;
+            const message = document.getElementById("message").value;
+
+            fetch(`http://${sender}/send`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message: message }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("response").innerText = "Message sent: " + data;
+            })
+            .catch((error) => {
+                document.getElementById("response").innerText = "Error: " + error;
+            });
+        });
+    </script>
+</body>
+</html>
