@@ -8,7 +8,7 @@ code segment
 assume cs:code, ds:data
 
 start:
-    mov ax, data              
+    mov ax, data              ; Каждому элементу массива, начиная со второго, присвоить значение максимального элемента из числа ему предшествующих и его самого.
     mov ds, ax
 
     mov si, 0                 
