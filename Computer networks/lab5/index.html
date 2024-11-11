@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости RSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .news-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .news-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .news-item p {
+            margin: 5px 0;
+        }
+        .news-item a {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Новости в реальном времени</h1>
+    <div id="news-container"></div>
+
+    <script>
+        const ws = new WebSocket("ws://localhost:9000/ws");
+
+        ws.onmessage = (event) => {
+            const newsList = JSON.parse(event.data);
+            const newsContainer = document.getElementById("news-container");
+            newsContainer.innerHTML = ""; // Очищаем контейнер перед обновлением
+
+            newsList.forEach(news => {
+                const newsItem = document.createElement("div");
+                newsItem.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <p>${news.description}</p>
+                    <a href="${news.link}" target="_blank">Читать далее</a>
+                    <p><small>Опубликовано: ${news.pubDate}</small></p>
+                    <hr>
+                `;
+                newsContainer.appendChild(newsItem);
+            });
+        };
+
+        ws.onclose = () => {
+            console.log("Соединение с WebSocket закрыто");
+        };
+    </script>
+</body>
+</html>
