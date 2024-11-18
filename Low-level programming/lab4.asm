@@ -8,6 +8,7 @@ data segment
     var5 db 13             ; 1 байт
     var6 db 14             ; 1 байт
     arr db 5 dup(0)        ; массив из 5 байтов
+    undef_error_msg db '         Error: Undefined variable used.', 0Dh, 0Ah, '$'
 data ends
 
 ; Описать макрос VOLUME p1, p2, p3, p4, p5, p6, p7, который подсчитывает и
@@ -45,8 +46,6 @@ VOLUME macro p1, p2, p3, p4, p5, p6, p7
     mov ax, totalSize
     call print_number
 endm
-
-undef_error_msg db '         Error: Undefined variable used.', 0Dh, 0Ah, '$'
 
 print_number proc
     push ax
