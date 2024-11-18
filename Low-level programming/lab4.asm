@@ -8,7 +8,6 @@ data segment
     var5 db 13             ; 1 байт
     var6 db 14             ; 1 байт
     arr db 5 dup(0)        ; массив из 5 байтов
-    volume_count dw 0      ; Переменная для хранения суммы байтов
 data ends
 
 ; Описать макрос VOLUME p1, p2, p3, p4, p5, p6, p7, который подсчитывает и
@@ -26,9 +25,9 @@ VOLUME macro p1, p2, p3, p4, p5, p6, p7
     check_size macro param
         ifnb <param>             ; Проверяем, что параметр не пустой
             ifdef param
-                totalSize = totalSize + SIZE param
+                totalSize = totalSize + size param
 	    else
-                mov dx, offset const_error_msg
+                mov dx, offset undef_error_msg
                 mov ah, 9
                 int 21h
             endif
@@ -48,7 +47,6 @@ VOLUME macro p1, p2, p3, p4, p5, p6, p7
 endm
 
 undef_error_msg db '         Error: Undefined variable used.', 0Dh, 0Ah, '$'
-const_error_msg db '         Error: Constant passed as parameter.', 0Dh, 0Ah, '$'
 
 print_number proc
     push ax
