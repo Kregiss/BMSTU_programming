@@ -13,12 +13,12 @@ import (
 
 func connect() (*ftp.ServerConn, error) {
 
-  conn, err := ftp.Dial("students.yss.su:21", ftp.DialWithTimeout(5*time.Second))
+  conn, err := ftp.Dial("some:21", ftp.DialWithTimeout(5*time.Second))
   if err != nil {
     return nil, err
   }
 
-  err = conn.Login("ftpiu8", "3Ru7yOTA")
+  err = conn.Login("pupupu", "pppp")
   if err != nil {
     return nil, err
   }
