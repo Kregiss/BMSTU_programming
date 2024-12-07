@@ -2,6 +2,8 @@
 
 ```mount E C:\TASM```
 
+```E:\```
+
 ```TASM lab1```
 
 ```TLINK lab1```
