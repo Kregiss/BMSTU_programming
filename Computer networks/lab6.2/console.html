@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTP Console</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #003f87;
+        }
+        ul {
+            list-style: none;
+           padding: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .directory {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .file {
+            color: #555;
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FTP Console</h1>
+        <p id="connection-info"></p>
+        <form id="command-form">
+            <input type="text" id="command" placeholder="Enter command (e.g., ls, mkdir <dir>, rm <file>)">
+            <button type="submit">Execute</button>
+        </form>
+        <h2>Directory Listing</h2>
+        <ul id="directory-list"></ul>
+        <h2>Output</h2>
+        <pre id="output"></pre>
+    </div>
+    <script>
+        const ws = new WebSocket("ws://185.104.251.226:5421/ws");
+
+        const server = localStorage.getItem("server");
+        const username = localStorage.getItem("username");
+
+        document.getElementById("connection-info").textContent = `Connected to: ${server} as ${username}`;
+
+        document.getElementById("command-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const command = document.getElementById("command").value;
+            ws.send(JSON.stringify({ command }));
+        });
+
+        ws.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            const output = document.getElementById("output");
+
+            if (data.files) {
+                displayDirectory(data.files);
+            } else {
+                output.textContent = JSON.stringify(data, null, 2);
+            }
+        };
+
+        function displayDirectory(files) {
+            const directoryList = document.getElementById("directory-list");
+            directoryList.innerHTML = "";
+
+            files.forEach(file => {
+                const li = document.createElement("li");
+                li.textContent = file.type === "directory" ? `📁 ${file.name}` : `📄 ${file.name}`;
+                li.className = file.type;
+                directoryList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTP Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #003f87;
+        }
+        #error-message {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FTP Client</h1>
+        <form id="connect-form">
+            <input type="text" id="server" name="server" placeholder="FTP Server" required>
+            <input type="text" id="username" name="username" placeholder="FTP Username" required>
+            <input type="password" id="password" name="password" placeholder="FTP Password" required>
+            <button type="submit">Connect</button>
+        </form>
+        <p id="error-message"></p>
+    </div>
+    <script>
+        const ws = new WebSocket("ws://185.104.251.226:5421/ws");
+
+        document.getElementById("connect-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const server = document.getElementById("server").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            ws.send(JSON.stringify({
+                command: "connect",
+                server,
+                username,
+                password
+            }));
+        });
+
+        ws.onmessage = function(event) {
+            const response = JSON.parse(event.data);
+
+            if (response.success) {
+                localStorage.setItem("server", document.getElementById("server").value);
+                localStorage.setItem("username", document.getElementById("username").value);
+                localStorage.setItem("password", document.getElementById("password").value);
+                window.location.href = "console.html";
+            } else {
+                const errorMessage = document.getElementById("error-message");
+                errorMessage.textContent = `Error: ${response.message}`;
+            }
+        };
+    </script>
+</body>
+</html>
+
+
