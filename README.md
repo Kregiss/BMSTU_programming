@@ -8,3 +8,6 @@
 ### 3 семестр
 * [Компьютерные сети (Go)](./Computer%20networks/)
 * [Низкоуровневое программирование (Assembler)](./Low-level%20programming/)
+### 4 семестр
+* [Алгоритмы компьютерной графики (Python)](./Computer%20Graphics%20Algorithms/)
+* [Операционые системы (ReactOS, NetBSD)](./Operating%20Systems/)
