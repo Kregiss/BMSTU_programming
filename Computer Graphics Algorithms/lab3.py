@@ -62,7 +62,7 @@ def scanline_fill():
     edge_table.sort(key=lambda e: e[0])
 
     active_edges = []
-    y = min(pt[1] for pt in polygon_points)  # Начальный Y
+    y = min(pt[1] for pt in polygon_points) 
 
     while edge_table or active_edges:
         # Рёбра, начинающиеся на этой строке
