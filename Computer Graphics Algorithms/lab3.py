@@ -1,3 +1,8 @@
+'''
+1. Определить параметризованную модель объекта сцены 
+(персональный вариант: эллипсоид)
+'''
+
 import glfw
 from OpenGL.GL import *
 from OpenGL.GLUT import *
