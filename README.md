@@ -1,6 +1,6 @@
 ## Содержание
 ### 1 семестр
-* [Алгоритмы и стуктуры данных (C)](./Algorithms%20and%20data%20structures/)
+* [Алгоритмы и структуры данных (C)](./Algorithms%20and%20data%20structures/)
 * [Основы информатики (Scheme)](./Basics%20of%20informatic/)
 ### 2 семестр  
 * [Дискретная математика (Go)](./Discrete%20mathematic/)
