@@ -11,3 +11,7 @@
 ### 4 семестр
 * [Алгоритмы компьютерной графики (Python)](./Computer%20Graphics%20Algorithms/)
 * [Операционые системы (ReactOS, NetBSD)](./Operating%20Systems/)
+### 5 семестр
+* [Базы данных (SQL)](.//Data%20Bases/)
+* [Разработка параллельных и распределённых программ (Java, C++)](./RPiRP/)
+* [Теория формальных языков (C, Python)](https://github.com/Kregiss/TFL/)
