@@ -1,0 +1,5 @@
+g++ -std=c++17 main.cpp -o compiler
+
+./compiler < test1.txt > cfg1.dot
+
+dot -Tpng cfg1.dot -o cfg1.png
