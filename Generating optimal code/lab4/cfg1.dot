@@ -1,0 +1,23 @@
+digraph CFG {
+  exit_0 [shape=box, label="exit_0:\l"];
+  entry_1 [shape=box, label="entry_1:\lt0_0 = 10\lx_0 = t0_0\lt1_0 = 5\lt2_0 = 2\lt3_0 = t1_0 * t2_0\ly_0 = t3_0\lt4_0 = 0\lsum_0 = t4_0\lgoto for_init_2\l"];
+  entry_1 -> for_init_2;
+  for_init_2 [shape=box, label="for_init_2:\lt5_0 = 0\li_0 = t5_0\lgoto for_cond_3\l"];
+  for_init_2 -> for_cond_3;
+  for_cond_3 [shape=box, label="for_cond_3:\li_1 = phi(i_0:for_init_2, i_2:for_step_5)\lt16_0 = phi(t16:for_init_2, t16_1:for_step_5)\lt17_0 = phi(t17:for_init_2, t17_1:for_step_5)\lt8_0 = phi(t8:for_init_2, t8_1:for_step_5)\lt9_0 = phi(t9:for_init_2, t9_1:for_step_5)\lt6_0 = 10\lt7_0 = i_1 < t6_0\lif t7_0 goto for_body_4\lgoto for_after_6\l"];
+  for_cond_3 -> for_body_4;
+  for_cond_3 -> for_after_6;
+  for_body_4 [shape=box, label="for_body_4:\lt8_1 = 5\lt9_1 = i_1 < t8_1\lif t9_1 goto then_7\lgoto else_8\lgoto for_step_5\l"];
+  for_body_4 -> then_7;
+  for_body_4 -> else_8;
+  for_body_4 -> for_step_5;
+  for_step_5 [shape=box, label="for_step_5:\lt16_1 = 1\lt17_1 = i_1 + t16_1\li_2 = t17_1\lgoto for_cond_3\l"];
+  for_step_5 -> for_cond_3;
+  for_after_6 [shape=box, label="for_after_6:\lret sum_0\l"];
+  for_after_6 -> exit_0;
+  then_7 [shape=box, label="then_7:\lt10_0 = 2\lt11_0 = x_0 * t10_0\lt12_0 = sum_0 + t11_0\ly_1 = t12_0\lt13_0 = x_0 + y_1\lsum_1 = t13_0\lgoto if_merge_9\l"];
+  then_7 -> if_merge_9;
+  else_8 [shape=box, label="else_8:\lt14_0 = sum_0 + y_0\lx_1 = t14_0\lt15_0 = x_1 + y_0\lsum_2 = t15_0\lgoto if_merge_9\l"];
+  else_8 -> if_merge_9;
+  if_merge_9 [shape=box, label="if_merge_9:\lsum_3 = phi(sum_1:then_7, sum_2:else_8)\lt10_1 = phi(t10_0:then_7, t10:else_8)\lt11_1 = phi(t11_0:then_7, t11:else_8)\lt12_1 = phi(t12_0:then_7, t12:else_8)\lt13_1 = phi(t13_0:then_7, t13:else_8)\lt14_1 = phi(t14:then_7, t14_0:else_8)\lt15_1 = phi(t15:then_7, t15_0:else_8)\lx_2 = phi(x_0:then_7, x_1:else_8)\ly_2 = phi(y_1:then_7, y_0:else_8)\l"];
+}
