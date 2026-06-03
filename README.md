@@ -17,6 +17,6 @@
 * [Теория формальных языков (C, Python)](https://github.com/Kregiss/TFL/)
 ### 6 семестр
 * [Генерация оптимального кода (C++)](.//Generating%20optimal%20code/)
-* [Конструирование компиляторов (Java, Python)](.//Object-functional%20programming/)
-* [Объектно-функциональное программирование (Scala)]()
+* [Конструирование компиляторов (Java, Python)](.//Compilers)
+* [Объектно-функциональное программирование (Scala)](.//Object-functional%20programming/)
 * [Численные методы (Python)](.//Numerical%20methods/)
